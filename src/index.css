@@ -11,26 +11,26 @@
   }
 
   .formContainer {
-    @apply flex h-svh justify-center p-4;
+    @apply flex justify-center p-4;
   }
 
-  .formRegGrid {
-    @apply grid w-[90%] max-w-full grid-cols-1 overflow-hidden px-[96px] lg:grid-cols-7;
-  }
+  /* .formRegGrid {
+    @apply grid w-[90%] max-w-full overflow-hidden px-[96px] lg:grid-cols-7 lg:grid-rows-[800px];
+  } */
   .formGrid {
-    @apply my-5 grid w-[90%] max-w-7xl grid-cols-1 overflow-hidden px-[96px] lg:grid-cols-5;
+    @apply my-5 grid w-[90%] max-w-7xl grid-cols-1 overflow-hidden px-[96px] lg:grid-cols-5 lg:grid-rows-[800px];
   }
 
   .formFirstGridCell {
-    @apply hidden flex-col items-center justify-center rounded-l-xl p-10 sm:flex sm:p-20 sm:text-center lg:col-span-3;
+    @apply hidden flex-col justify-center rounded-l-xl p-10 sm:flex sm:p-20 sm:text-center lg:col-span-3;
   }
-  .formRegFirstGridCell {
+  /* .formRegFirstGridCell {
     @apply hidden flex-col items-center justify-center rounded-l-xl p-10 sm:flex sm:px-10 sm:text-center lg:col-span-4;
   }
 
   .formRegSecondGridCell {
-    @apply flex flex-col items-center justify-center rounded-r-xl px-5 py-5 sm:px-10 lg:col-span-3;
-  }
+    @apply flex flex-col items-center justify-center rounded-r-xl px-5 sm:px-10 lg:col-span-3;
+  } */
   .formSecondGridCell {
     @apply flex flex-col items-center justify-center rounded-r-xl px-5 py-10 sm:py-20 lg:col-span-2;
   }
@@ -49,5 +49,33 @@
 
   .regFormInput {
     @apply rounded bg-gray-400/5 px-5 py-2 text-slate-950 placeholder:text-sm placeholder:text-slate-950/50;
+  }
+
+  .items {
+    @apply relative py-3;
+  }
+
+  .items:not(:nth-child) {
+    @apply mb-4;
+  }
+
+  .items::before {
+    @apply absolute left-0 top-0 block h-full w-1 scale-y-0 bg-blue-600 transition-transform duration-[.4s] ease-[cubic-bezier(1,0,0,1)] content-[''];
+  }
+
+  .items:hover::before {
+    @apply w-full scale-y-100 transform;
+  }
+
+  .items:active::before {
+    @apply bg-blue-700;
+  }
+
+  .items > a {
+    @apply relative z-10 mx-6 flex items-center gap-3;
+  }
+
+  .items:hover > a {
+    @apply text-white;
   }
 }

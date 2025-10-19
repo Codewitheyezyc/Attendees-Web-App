@@ -3,7 +3,7 @@ function About() {
     <section className="bg-purple-950 pb-5 sm:pb-10">
       <div className="centerContainer py-10 sm:text-center">
         <h2 className="mb-5 text-2xl font-bold capitalize text-purple-300 sm:text-3xl md:text-4xl">
-          Why this app was created
+          Why this app
         </h2>
         <p className="text-base text-slate-50 sm:text-lg">
           In growing churches and ministries, keeping track of people isn’t just

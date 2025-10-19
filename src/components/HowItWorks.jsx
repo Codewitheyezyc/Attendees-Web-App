@@ -1,4 +1,5 @@
-import howItWorks from '../data/howItWorks';
+import { howItWorks } from '../data/datas';
+
 import SectionCard from './SectionCard';
 
 function HowItWorks() {

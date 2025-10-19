@@ -1,19 +1,21 @@
 import { Link, NavLink } from 'react-router-dom';
-import attendeesLogo from '../assets/attendees-logo.png';
 import Button from '../ui/Button';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import Logo from '../ui/Logo';
 
-function Navbar() {
+function Navbar({ login }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="bg-blue-200 py-5 text-base font-normal text-slate-800 sm:py-6">
+    <header
+      className={` ${login === 'login' ? 'bg-purple-200' : 'bg-blue-200'} py-5 text-base font-normal text-slate-800 sm:py-6`}
+    >
       <div className="mx-auto flex w-[90%] max-w-screen-xl items-center justify-between">
         <div className="flex items-center gap-2">
           <Link to="/" className="flex items-center gap-2">
-            <img src={attendeesLogo} alt="Attendees Logo" className="h-14" />
+            <Logo />
             <span className="text-lg font-semibold text-slate-800">
               Atendees
             </span>
@@ -42,6 +44,9 @@ function Navbar() {
             <li className="">
               <NavLink>Why This App</NavLink>
             </li>
+            <li className="">
+              <NavLink to="/id-card">ID Card</NavLink>
+            </li>
           </ul>
           <Link to="/registration">
             <Button type={'small'}>Register</Button>
@@ -52,18 +57,20 @@ function Navbar() {
       {/* Mobile Menu (only visible when isOpen is true) */}
       {isOpen && (
         <div className="space-y-6 px-6 pb-4 pt-4 md:hidden">
-          <NavLink
-            to="/how-it-works"
-            className="block text-slate-800 hover:text-blue-700"
-          >
+          <NavLink to="" className="block text-slate-800 hover:text-blue-700">
             How It Works
           </NavLink>
-          <NavLink
-            to="/why-this-app"
-            className="block text-slate-800 hover:text-blue-700"
-          >
+          <NavLink to="" className="block text-slate-800 hover:text-blue-700">
             Why This App?
           </NavLink>
+
+          <NavLink
+            to="/id-card"
+            className="block text-slate-800 hover:text-blue-700"
+          >
+            ID Card
+          </NavLink>
+
           <Link to="registration">
             <Button type={'small'}>Register</Button>
           </Link>

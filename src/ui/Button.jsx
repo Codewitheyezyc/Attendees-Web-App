@@ -1,4 +1,4 @@
-function Button({ children, type }) {
+function Button({ children, type, onClick }) {
   const base =
     'inline-block cursor-pointer rounded bg-blue-600  font-semibold uppercase text-blue-50 transition-all hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-700 focus:ring-offset-2 duration-300 disabled:cursor-not-allowed';
 
@@ -14,7 +14,11 @@ function Button({ children, type }) {
       'inline-block cursor-pointer rounded bg-black-600  font-semibold uppercase text-blue-50 transition-all hover:bg-black-900 focus:bg-black-900 focus:outline-none focus:ring focus:ring-black focus:ring-offset-2 duration-300 bg-black disabled:cursor-not-allowed md:px-6 md:py-3 px-4 py-1',
   };
 
-  return <button className={styles[type]}>{children}</button>;
+  return (
+    <button onClick={onClick} className={styles[type]}>
+      {children}
+    </button>
+  );
 }
 
 export default Button;
