@@ -6,7 +6,7 @@ import ThankYou from './pages/ThankYou';
 import AppLayout from './pages/AppLayout';
 import { AuthProvider } from './context/AuthProvider';
 import { LoginAuthProvider } from './context/loginAuth/LoginAuthProvider';
-import IDCard from './components/idCard/idcard';
+import IDCard from './components/idCard/IDCard';
 
 function App() {
   return (

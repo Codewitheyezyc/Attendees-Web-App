@@ -1,4 +1,3 @@
-// import React, { useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useRef, useState } from 'react';
@@ -38,28 +37,7 @@ export default function IDCard() {
     setShowCard(true);
   };
 
-  // const downloadPNG = async () => {
-  //   const canvas = await html2canvas(cardRef.current, { scale: 3 });
-  //   const dataURL = canvas.toDataURL('image/png');
-  //   const link = document.createElement('a');
-  //   link.href = dataURL;
-  //   link.download = `${formData.name.replace(/\s+/g, '_')}_DanceCamp_ID.png`;
-  //   link.click();
-  // };
-
-  // const downloadPDF = async () => {
-  //   const canvas = await html2canvas(cardRef.current, { scale: 3 });
-  //   const imgData = canvas.toDataURL('image/png');
-  //   const pdf = new jsPDF({
-  //     orientation: 'portrait',
-  //     unit: 'mm',
-  //     format: [85.6, 54], // ID card size in mm (credit card size)
-  //   });
-  //   pdf.addImage(imgData, 'PNG', 0, 0, 85.6, 54);
-  //   pdf.save(`${formData.name.replace(/\s+/g, '_')}_DanceCamp_ID.pdf`);
-  // };
-
-  // ✅ Download PNG
+  //  Download PNG
   const downloadPNG = async () => {
     // const card = document.getElementById('id-card');
     const canvas = await html2canvas(cardRef.current, { scale: 2 });
@@ -71,7 +49,7 @@ export default function IDCard() {
     link.click();
   };
 
-  // ✅ Download PDF (Perfect Portrait)
+  //Download PDF (Perfect Portrait)
   const downloadPDF = async () => {
     // const card = document.getElementById('id-card');
 
