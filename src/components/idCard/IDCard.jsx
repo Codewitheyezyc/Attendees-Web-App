@@ -97,7 +97,7 @@ export default function IDCard() {
   return (
     <div className="flex min-h-screen flex-col bg-blue-200 font-sans">
       <Navbar />
-      <div className="mt-20 flex flex-col items-center justify-center p-4">
+      <div className="flex flex-col items-center justify-center p-4 sm:my-10 lg:mt-20">
         <h1 className="mb-4 text-center text-2xl font-bold text-blue-700">
           Dance ID Card Generator
         </h1>
