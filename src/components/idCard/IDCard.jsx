@@ -80,10 +80,13 @@ export default function IDCard() {
   return (
     <div className="flex min-h-screen flex-col bg-blue-200 font-sans">
       <Navbar />
-      <div className="flex flex-col items-center justify-center p-4 sm:my-10 lg:mt-20">
+      <div className="flex flex-col items-center justify-center p-4 sm:mt-10 lg:mt-20">
         <h1 className="mb-4 text-center text-2xl font-bold text-blue-700">
           Dance ID Card Generator
         </h1>
+        <p className="mb-4 text-center text-sm font-bold text-black">
+          Image size should be a square (e.g, 500 x 500, 1080 x 1080)
+        </p>
 
         {/* Input Form */}
         {!showCard && (
