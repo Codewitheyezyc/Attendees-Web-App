@@ -198,18 +198,20 @@ export default function IDCard() {
                 )}
               </div>
               <div className="mb-1 mt-3 text-center">
-                <h2 className="text-balck text-2xl font-bold">
-                  {formData.name}
+                <h2 className="text-balck text-xl font-bold">
+                  {formData.name.toUpperCase()}
                 </h2>
-                <p className="text-bold text-sm font-semibold">
-                  {formData.role}
+                <p className="text-bold text-sm font-medium italic">
+                  {formData.role.toUpperCase()}
                 </p>
               </div>
               <div className="mt-5 w-full p-2 text-center">
-                <p className="text-sm font-bold text-black">{formData.group}</p>
+                <p className="text-sm font-bold text-black">
+                  {formData.group.toUpperCase()}
+                </p>
 
                 <p className="text-sm font-semibold text-black">
-                  {formData.zone}
+                  {formData.zone.toUpperCase()}
                 </p>
               </div>
 

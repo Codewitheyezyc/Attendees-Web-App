@@ -17,7 +17,7 @@ function Navbar({ login }) {
           <Link to="/" className="flex items-center gap-2">
             <Logo />
             <span className="text-lg font-semibold text-slate-800">
-              Atendees
+              Attendees
             </span>
           </Link>
         </div>
