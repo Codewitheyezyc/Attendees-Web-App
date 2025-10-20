@@ -56,41 +56,24 @@ export default function IDCard() {
     setShowCard(true);
   };
 
-  //  Download PNG
   const downloadPNG = async () => {
-    // const card = document.getElementById('id-card');
-    const canvas = await html2canvas(cardRef.current, { scale: 2 });
-    const imgData = canvas.toDataURL('image/png');
-
+    const canvas = await html2canvas(cardRef.current, { scale: 3 });
+    const dataURL = canvas.toDataURL('image/png');
     const link = document.createElement('a');
-    link.href = imgData;
+    link.href = dataURL;
     link.download = `${formData.name.replace(/\s+/g, '_')}_DanceCamp_ID.png`;
     link.click();
   };
 
-  //Download PDF (Perfect Portrait)
   const downloadPDF = async () => {
-    // const card = document.getElementById('id-card');
-
-    const canvas = await html2canvas(cardRef.current, { scale: 2 });
+    const canvas = await html2canvas(cardRef.current, { scale: 3 });
     const imgData = canvas.toDataURL('image/png');
-
-    // Get card size in pixels
-    const imgWidth = canvas.width;
-    const imgHeight = canvas.height;
-
-    // Convert pixels → millimeters
-    const pdfWidth = (imgWidth * 25.4) / 96;
-    const pdfHeight = (imgHeight * 25.4) / 96;
-
-    // Create PDF same size as card
     const pdf = new jsPDF({
-      orientation: pdfHeight > pdfWidth ? 'portrait' : 'landscape',
+      orientation: 'portrait',
       unit: 'mm',
-      format: [pdfWidth, pdfHeight],
+      format: [85.6, 54], // ID card size in mm (credit card size)
     });
-
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.addImage(imgData, 'PNG', 0, 0, 85.6, 54);
     pdf.save(`${formData.name.replace(/\s+/g, '_')}_DanceCamp_ID.pdf`);
   };
 
