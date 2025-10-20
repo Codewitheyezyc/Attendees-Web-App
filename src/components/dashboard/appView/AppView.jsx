@@ -2,7 +2,7 @@ import GridView from './GridView';
 import StatsCards from './StatsCards';
 import ViewFooter from './ViewFooter';
 
-import ViewHeader from './viewHeader';
+import ViewHeader from './ViewHeader';
 import ViewLeaders from './ViewLeaders';
 import ViewReport from './ViewReport';
 import ViewTable from './ViewTable';
