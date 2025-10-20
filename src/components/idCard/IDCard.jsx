@@ -2,6 +2,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useRef, useState } from 'react';
 import Navbar from '../Navbar';
+import imageCompression from 'browser-image-compression';
 
 export default function IDCard() {
   const cardRef = useRef();
@@ -14,10 +15,28 @@ export default function IDCard() {
   });
   const [showCard, setShowCard] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     const { name, value, files } = e.target;
-    if (name === 'photo') {
-      setFormData({ ...formData, photo: URL.createObjectURL(files[0]) });
+
+    if (name === 'photo' && files && files[0]) {
+      const file = files[0];
+
+      // Compress and resize the image before saving
+      const options = {
+        maxWidthOrHeight: 500, // limit image dimensions
+        maxSizeMB: 1, // limit file size to ~1MB
+        useWebWorker: true,
+      };
+
+      try {
+        const compressedFile = await imageCompression(file, options);
+        const compressedImage =
+          await imageCompression.getDataUrlFromFile(compressedFile);
+
+        setFormData({ ...formData, photo: compressedImage });
+      } catch (error) {
+        console.error('Error compressing image:', error);
+      }
     } else {
       setFormData({ ...formData, [name]: value });
     }
